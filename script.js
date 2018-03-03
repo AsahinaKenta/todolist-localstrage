@@ -1,45 +1,39 @@
-// ローカルストレージへの保存
-// localStorage.setItem('key','value');
-// keyとvalueのペアで保存する
-
-// localStorage.setItem('name','朝比奈');
+// var text = document.getElementById('text');
+// var copyBtn = document.getElementById('copy-btn');
+// // var resultText = document.getElementById('result-text');
+// var resultArea =document.getElementById('result-area');
+// // console.dir(text);
 //
-// var name = '石黒';
-// localStorage.setItem('名前',name);
 //
-// var num = 100;
-// localStorage.setItem('num',num);
-//
-// var fruits = ['りんご','みかん','バナナ'];
-// localStorage.setItem('果物',fruits);
+// // copyBtn.addEventListener('click',function(){
+// //   var sampleText= text.innerHTML;
+// //   var p = document.createElement('p');
+// //   p.innerHTML = sampleText;
+// //   console.log(sampleText);
+// //   resultText.innerHTML = sampleText + 'コピーしたよ';
+// // });
+// copyBtn.addEventListener('click',function(){
+//   var sampleText= text.innerHTML;
+//   var p = document.createElement('p');
+//   p.innerHTML = sampleText;
+//   resultArea.appendChild(p);
+// });
 
-// JSON
-// JavaScript Object Notation
+var input = document.getElementById('title');
+var textArea = document.getElementById('content');
+var addBtn = document.getElementById('add-btn');
+var toDoArea =document.getElementById('to-do-area')
 
-// JSON形式に変換
-// var fruitsJson = JSON.stringify(fruits);
-// localStorage.setItem('果物',fruitsJson);
+addBtn.addEventListener('click',function(){
+  var title = input.value;
+  var content = textArea.value;
+  var h2 = document.createElement('h2');
+  var p = document.createElement('p');
+  var li = document.createElement('li');
+  h2.innerHTML = title;
+  p.innerHTML = content;
+  li.appendChild(h2);
+  li.appendChild(p);
 
-// ローカルストレージかデータを取得
-//　localStorage.getItem('key');
-
-console.log(localStorage.getItem('name'));
-
-var getData = localStorage.getItem('名前');
-console.log(getData);
-
-var getNum = localStorage.getItem('num');
-console.log(getNum);
-
-console.log( +localStorage.getItem('num'));
-
-var getFruits = localStorage.getItem('果物');
-console.log(getFruits);
-var jsonParse = JSON.parse(getFruits);
-console.log(jsonParse);
-
-// データの削除
-// localStorage.removeKey('Key');
-localStorage.removeItem('名前');
-
-localStorage.clear();
+  toDoArea.appendChild(li);
+});
